@@ -23,8 +23,9 @@ class KitchensController < ApplicationController
   end
 
   def update
-    @kitchen.update(set_kitchen)
-    redirect_to kitchen_path(@kitchen)
+    return redirect_to @kitchen if @kitchen.update
+
+    render :edit
   end
 
   def destroy
