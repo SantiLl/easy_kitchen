@@ -1,7 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <a class="navbar-brand" href="#">
-    <img src="https://www.freelogodesign.org/file/app/client/thumb/f51cb136-13bb-4c79-9b9b-1029d99d8ba2_200x200.png?1572291762998" />
-</a>
+  <%= link_to "/", class: "navbar-brand" do %>
+    <%= image_tag asset_path("easykitchen-logo.png") %>
+  <% end %>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -9,20 +10,19 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home</a>
+      <li class="nav-item btn btn-light">
+        <%= link_to "Sign In", "new_user_session_path", class: "nav-link" %>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Kitchens</a>
+      <li class="nav-item ml-3 btn btn-light">
+        <%= link_to "Sign Up", "new_user_user_registration_path", class: "nav-link" %>
       </li>
-      <li class="nav-item dropdown">
-        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+      <li class="nav-item dropdown ml-4">
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <%= link_to "Action", "#", class: "dropdown-item" %>
+          <%= link_to "Another action", "#", class: "dropdown-item" %>
         </div>
       </li>
     </ul>
   </div>
 </div>
-
