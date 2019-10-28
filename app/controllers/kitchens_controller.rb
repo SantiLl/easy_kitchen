@@ -14,11 +14,9 @@ class KitchensController < ApplicationController
 
   def create
     @kitchen = Kitchen.new(kitchen_params)
-    if @kitchen.save
-      redirect_to kitchen_path(@kitchen)
-    else
-      render :new
-    end
+    return redirect_to @kitchen if @kitchen.save
+
+    render :new
   end
 
   def edit
