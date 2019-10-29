@@ -4,5 +4,8 @@
     <h5 class="card-title">Kitchen name</h5>
     <p class="card-text">Kitchen Addres</p>
     <p class="card-text">$1000</p>
+       <%= link_to 'edit', edit_kitchen_path(kitchen) %>
+       <%= link_to 'destroy', kitchen_path(kitchen), method: :delete %>
+
   </div>
 </div>
