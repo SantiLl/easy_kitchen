@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   # Obligar login en lugares que no sean las pags que estan en only
-  skip_before_action :authenticate_user!, only: [:home, :show]
+  # skip_before_action :authenticate_user!, only: [:home, :show]
   # Agregar First name and Last name en registration.
   before_action :configure_permitted_parameters, if: :devise_controller?
 
