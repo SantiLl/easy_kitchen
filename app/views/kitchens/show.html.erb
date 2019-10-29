@@ -14,4 +14,20 @@
       <%= f.button :submit, class: "btn btn-primary" %>
     <% end %>
   </div>
+
+</div>
+
+<div class="wrapper-review">
+  <h2>Reviews</h2>
+
+   <% @kitchen.reviews.each do |review| %>
+    <div class="reviews-container border rounded">
+      <div class="reviews-user">
+        <%= review.appointment.user.email %>
+      </div>
+      <h3> <%= review.content %> </h3>
+      <p><%= review.appointment.date %></p>
+    </div>
+
+    <% end %>
 </div>

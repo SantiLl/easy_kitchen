@@ -3,10 +3,9 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @appointment = Appointment.find(params[:appointment_id])
     @review.appointment = @appointment
-    @kitchen = Appointment.find(params[:kitchen_id])
     authorize @review
 
-    return redirect_to @kitchen if @review.save
+    return redirect_to @appointment.kitchen if @review.save
 
     render :new
   end
