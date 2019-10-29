@@ -1,12 +1,12 @@
 puts 'Cleaning database...'
-puts 'Erasing users...'
-User.destroy_all
-puts 'Erasing kitchens...'
-Kitchen.destroy_all
-puts 'Erasing appointments...'
-Appointment.destroy_all
 puts 'Erasing reviews...'
 Review.destroy_all
+puts 'Erasing appointments...'
+Appointment.destroy_all
+puts 'Erasing kitchens...'
+Kitchen.destroy_all
+puts 'Erasing users...'
+User.destroy_all
 require 'faker'
 puts 'Creating admin user...'
 admin = User.create!(email: 'admin@easy-kitchen.com', password: 'kitchen')
