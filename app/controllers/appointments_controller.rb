@@ -1,6 +1,7 @@
 class AppointmentsController < ApplicationController
   before_action :find_appointment, only: [:show, :edit, :update, :destroy]
   def show
+    authorize @appointment
   end
 
   def new
@@ -12,6 +13,7 @@ class AppointmentsController < ApplicationController
     @appointment.user = current_user
     @kitchen = Kitchen.find(params[:kitchen_id])
     @appointment.kitchen = @kitchen
+    authorize @appointment
     return redirect_to @appointment if @appointment.save
 
     render :new
@@ -39,4 +41,5 @@ class AppointmentsController < ApplicationController
 
   def appointment_params
     params.require(:appointment).permit(:date)
+  end
 end
