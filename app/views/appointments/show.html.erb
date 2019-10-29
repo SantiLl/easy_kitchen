@@ -2,4 +2,7 @@
 <p>Find me in app/views/appointments/show.html.erb</p>
 
 
-
+<%= simple_form_for(@review, as: :review, method: :post, url: appointment_reviews_path) do |f| %>
+  <%= f.input :content %>
+  <%= f.button :submit %>
+<% end %>
