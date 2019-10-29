@@ -1,0 +1,74 @@
+// Specific CSS for your home-page
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  margin: 10px;
+}
+
+.card-kitchen{
+  position: relative;
+  background-color: white;
+  border-radius: 4px;
+  &:hover{
+  box-shadow: 1px 1px 5px lightgrey;
+  }
+  a{
+    text-decoration: none;
+  }
+}
+
+.btn-box {
+  position: absolute;
+  top: 8px;
+  right: 20px;
+}
+
+.btn-card {
+  background-color: $btn-color;
+  padding: 5px;
+  border-radius: 4px;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  opacity: 0.8;
+  &:hover{
+    color: white;
+    opacity: 1;
+  }
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
