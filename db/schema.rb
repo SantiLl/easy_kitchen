@@ -15,6 +15,16 @@ ActiveRecord::Schema.define(version: 2019_10_29_141106) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "appointments", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "kitchen_id"
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["kitchen_id"], name: "index_appointments_on_kitchen_id"
+    t.index ["user_id"], name: "index_appointments_on_user_id"
+  end
+
   create_table "kitchens", force: :cascade do |t|
     t.string "address"
     t.string "description"
@@ -44,6 +54,8 @@ ActiveRecord::Schema.define(version: 2019_10_29_141106) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "appointments", "kitchens"
+  add_foreign_key "appointments", "users"
   add_foreign_key "kitchens", "users"
   add_foreign_key "reviews", "kitchens"
 end
