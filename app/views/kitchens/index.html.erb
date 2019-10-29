@@ -1,2 +1,14 @@
-<h1>Kitchens#index</h1>
-<p>Find me in app/views/kitchens/index.html.erb</p>
+<%= render 'components/navbar' %>
+<%= render 'shared/carousel' %>
+<div class="container-fluid">
+  <% if policy(Kitchen).create? %>
+    <%= link_to 'Create kitchen', new_kitchen_path, class: 'btn btn-dark'  %>
+  <% end %>
+  <h2 class="mt-5 mb-3 text-center">Our favorite kitchens</h2>
+  <div class="cards">
+    <% @kitchens.each do |kitchen| %>
+       <%= render 'components/card', kitchen: kitchen %>
+    <% end %>
+  </div>
+</div>
+<%= render 'components/footer' %>
