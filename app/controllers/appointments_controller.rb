@@ -1,6 +1,7 @@
 class AppointmentsController < ApplicationController
   before_action :find_appointment, only: [:show, :edit, :update, :destroy]
   def show
+    @review = Review.new
   end
 
   def new

@@ -1,2 +1,7 @@
 <h1>Kitchens#show</h1>
 <p>Find me in app/views/kitchens/show.html.erb</p>
+
+
+<% if policy(@review).new %>
+  <h1>FORMULARIO PARA REVIEW</h1>
+<% end %>
