@@ -6,6 +6,7 @@ class KitchensController < ApplicationController
   end
 
   def show
+    @appointment = Appointment.new
   end
 
   def new
