@@ -1,6 +1,7 @@
 <h1>Kitchens#show</h1>
 <p>Find me in app/views/kitchens/show.html.erb</p>
 
+
 <%= simple_form_for [@kitchen, @appointment] do |f| %>
   <%= f.input :date  as: :date, start_year: Date.today.year - 90,
                               end_year: Date.today.year - 12, discard_day: true,
@@ -8,3 +9,8 @@
   <%= f.input :kitchen_id, collection: 18..60, prompt: "Select the kitchen you want to reserve", selected: 21 %>
   <%= f.button :submit %>
 <% end %>
+
+<%= @kitchen.id %>
+<%= @kitchen.address %>
+<%= @kitchen.description %>
+<%= link_to 'home', root_path %>
