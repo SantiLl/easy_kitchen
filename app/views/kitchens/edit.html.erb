@@ -1,0 +1,7 @@
+<h1>Edit kitchen</h1>
+
+<%= simple_form_for [@user, @kitchen] do |f| %>
+  <%= f.input :address %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
+<% end %>

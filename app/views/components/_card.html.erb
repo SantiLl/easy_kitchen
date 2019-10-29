@@ -1,8 +1,19 @@
-<div class="card">
+<div class="card-kitchen">
+<%= link_to kitchen_path(kitchen) do %>
   <img class="card-img-top" src="<%= asset_path('image_7.jpg') %>" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">Kitchen name</h5>
-    <p class="card-text">Kitchen Addres</p>
-    <p class="card-text">$1000</p>
+    <h5 class="card-title text-dark">Kitchen <%= kitchen.id %></h5>
+    <p class="card-text text-dark">Address: <%= kitchen.address %></p>
+    <p class="card-text text-dark mb-3">Description: <%= kitchen.description %></p>
+      <div class="btn-box">
+        <% if policy(kitchen).edit? %>
+         <%= link_to 'edit', edit_kitchen_path(kitchen), class: 'btn-card' %>
+        <% end %>
+        <% if policy(kitchen).destroy? %>
+         <%= link_to content_tag(:i, "", class: 'fas fa-trash'), kitchen_path(kitchen), method: :delete, class: 'btn-card'  %>
+        <% end %>
+      </div>
   </div>
+  <% end %>
 </div>
+

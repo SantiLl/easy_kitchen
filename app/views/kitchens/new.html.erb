@@ -1,2 +1,15 @@
-<h1>Kitchens#new</h1>
-<p>Find me in app/views/kitchens/new.html.erb</p>
+<div class="wraper">
+  <div class="form-new">
+    <div class="title">
+      <h1>Set a new kitchen</h1>
+    </div>
+    <%= simple_form_for [@user, @kitchen] do |f| %>
+      <%= f.input :address %>
+      <%= f.input :description %>
+      <div class="links">
+        <%= f.button :submit, class:'btn-card' %>
+        <%= link_to 'Home', root_path, class: "btn-home" %>
+      </div>
+    <% end %>
+  </div>
+</div>
