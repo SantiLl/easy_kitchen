@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2019_10_29_141106) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_kitchens_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -54,5 +56,6 @@ ActiveRecord::Schema.define(version: 2019_10_29_141106) do
 
   add_foreign_key "appointments", "kitchens"
   add_foreign_key "appointments", "users"
+  add_foreign_key "kitchens", "users"
   add_foreign_key "reviews", "kitchens"
 end
