@@ -2,7 +2,7 @@ class KitchensController < ApplicationController
   before_action :set_kitchen, only: [:show, :edit, :update, :destroy]
 
   def index
-    @kitchens = Kitchen.all
+    @kitchens = policy_scope(Kitchen).order(created_at: :desc)
   end
 
   def show
@@ -10,11 +10,13 @@ class KitchensController < ApplicationController
 
   def new
     @kitchen = Kitchen.new
+    authorize @kitchen
   end
 
   def create
     @kitchen = Kitchen.new(kitchen_params)
     @kitchen.user = current_user
+    authorize @kitchen
     return redirect_to @kitchen if @kitchen.save
 
     render :new
@@ -38,6 +40,7 @@ class KitchensController < ApplicationController
 
   def set_kitchen
     @kitchen = Kitchen.find(params[:id])
+    authorize @kitchen
   end
 
   def kitchen_params
