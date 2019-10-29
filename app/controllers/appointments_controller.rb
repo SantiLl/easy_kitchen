@@ -1,7 +1,7 @@
 class AppointmentsController < ApplicationController
   before_action :find_appointment, only: [:show, :edit, :update, :destroy]
   def show
-    authorize @appointment
+    @review = Review.new
   end
 
   def new
@@ -37,6 +37,7 @@ class AppointmentsController < ApplicationController
 
   def find_appointment
     @appointment = Appointment.find(params[:id])
+    authorize @appointment
   end
 
   def appointment_params
