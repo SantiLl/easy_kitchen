@@ -1,12 +1,9 @@
-<%= render 'components/navbar' %>
 <%= render 'shared/carousel' %>
 <div class="container-fluid">
-  <%= link_to 'Create kitchen', new_kitchen_path, class: 'btn btn-dark'  %>
-  <h2 class="mt-5 mb-3">Our favorite kitchens</h2>
+   <h2 class="mt-5 mb-3">Our favorite kitchens</h2>
   <div class="card-deck mt-5 rounded">
     <% @kitchens.each do |kitchen| %>
        <%= render 'components/card', kitchen: kitchen %>
     <% end %>
   </div>
 </div>
-<%= render 'components/footer' %>
