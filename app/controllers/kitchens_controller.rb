@@ -4,6 +4,15 @@ class KitchensController < ApplicationController
 
   def index
     @kitchens = policy_scope(Kitchen).order(created_at: :desc)
+
+    @kitchens = Kitchen.geocoded # returns flats with coordinates
+    @markers = @kitchens.map do |kitchen|
+      {
+        lat: kitchen.latitude,
+        lng: kitchen.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { kitchen: kitchen })
+      }
+    end
   end
 
   def show
@@ -46,6 +55,6 @@ class KitchensController < ApplicationController
   end
 
   def kitchen_params
-    params.require(:kitchen).permit(:address, :description, :photo, :name, :price, :latitude, :longitude)
+    params.require(:kitchen).permit(:address, :description, :photo, :name, :price)
   end
 end

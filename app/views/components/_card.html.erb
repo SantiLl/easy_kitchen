@@ -1,6 +1,6 @@
 <%= link_to kitchen_path(kitchen) do %>
 <div class="card-kitchen">
-  <img class="card-img-top" src="<%= 'https://source.unsplash.com/1600x900/?kitchen' %>" alt="Card image cap">
+  <%= cl_image_tag kitchen.photo %>
   <div class="card-body">
     <h5 class="card-title text-dark"><%= kitchen.name %></h5>
     <p class="card-text text-dark">Address: <%= kitchen.address %></p>

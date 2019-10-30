@@ -3,8 +3,8 @@
     <div class="title">
       <h1>Edit kitchen</h1>
     </div>
-       <%= simple_form_for [@user, @kitchen] do |f| %>
-        <%= f.input :address %>
+      <%= simple_form_for [@user, @kitchen] do |f| %>
+        <%= f.input :address, id: 'kitchen_address' %>
         <%= f.input :description %>
         <%= f.input :name %>
         <%= f.input :price %>
