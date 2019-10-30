@@ -4,6 +4,14 @@ class KitchensController < ApplicationController
 
   def index
     @kitchens = policy_scope(Kitchen).order(created_at: :desc)
+
+    @kitchens = Kitchen.geocoded # returns flats with coordinates
+    @markers = @flats.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
   end
 
   def show
