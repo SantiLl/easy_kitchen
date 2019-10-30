@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   root to: 'kitchens#index'
   devise_for :users
 
@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   resources :appointments, only: [:show, :edit, :update, :destroy] do
     resources :reviews, only: [:create]
   end
-  
+
+  resources :users, only: [:edit, :update]
   get '/dashboard/', to: 'pages#dashboard', as: :dashboard
-  
+
 end
