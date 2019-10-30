@@ -14,6 +14,16 @@ class AppointmentPolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    allow_user?
+  end
+
+  def destroy?
+    allow_user?
+  end
+
+  private
+
+  def allow_user?
+    record.user == user
   end
 end
