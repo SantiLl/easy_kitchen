@@ -2,8 +2,9 @@
 <%= link_to kitchen_path(kitchen) do %>
 <%= cl_image_tag kitchen.photo %>
   <div class="card-body">
-    <h5 class="card-title text-dark">Kitchen <%= kitchen.id %></h5>
+    <h5 class="card-title text-dark"><%= kitchen.name %></h5>
     <p class="card-text text-dark">Address: <%= kitchen.address %></p>
+    <p class="card-text text-dark">$ <%= kitchen.price %></p>
     <p class="card-text text-dark mb-3" >Description: <%= kitchen.description.truncate(50) %></p>
       <div class="btn-box">
         <% if policy(kitchen).edit? %>

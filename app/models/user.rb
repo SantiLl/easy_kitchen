@@ -5,8 +5,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  # mount_uploader :photo, PhotoUploader
-  def avatar
+  
+   def avatar
     photo.nil? ? "http://romanroadtrust.co.uk/wp-content/uploads/2018/01/profile-icon-png-898.png" : photo
   end
+  mount_uploader :photo, PhotoUploader
 end

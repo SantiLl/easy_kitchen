@@ -9,6 +9,7 @@ puts 'Erasing users...'
 User.destroy_all
 require 'faker'
 puts 'Creating admin user...'
+
 admin = User.create!(email: 'admin@easy-kitchen.com', password: 'kitchen', photo: 'https://raymanpc.com/wiki/images/1/15/Admin.png')
 puts 'Creating regular users...'
 alejo = User.create!(email: 'alejo@easy-kitchen.com', password: 'kitchen', photo: 'https://ca.slack-edge.com/T02NE0241-UNDMY14Q5-3615c3435408-512')
@@ -16,10 +17,10 @@ santiago = User.create!(email: 'santiago@easy-kitchen.com', password: 'kitchen',
 enzo = User.create!(email: 'enzo@easy-kitchen.com', password: 'kitchen', photo:'https://ca.slack-edge.com/T02NE0241-UNDJE9Y1J-2cd2134f004a-72')
 andres = User.create!(email: 'andres@easy-kitchen.com', password: 'kitchen', photo:'https://ca.slack-edge.com/T02NE0241-UNDCB0BTN-6e9c411fc926-512')
 puts 'Creating kitchens...'
-kitchen1 = Kitchen.create!(user_id: alejo.id, address: Faker::Address.street_address, description: Faker::Restaurant.description, name:'El buen sabor', photo:'https://st.hzcdn.com/fimgs/90f15e760c36401e_1566-w312-h312-b0-p0--transitional-kitchen.jpg ', price:'$1360 ', latitude:'-34.583391', longitude:'-58.435571')
-kitchen2 = Kitchen.create!(user_id: santiago.id, address: Faker::Address.street_address, description: Faker::Restaurant.description, name: 'Al buen fuego', photo:'https://media.architecturaldigest.com/photos/569ec92a12582c256882aa24/4:3/w_768/0715-AD-HAGA06-02.jpg', price:'$4533 ', latitude:'-34.575574', longitude:'-58.443730')
-kitchen3 = Kitchen.create!(user_id: enzo.id, address: Faker::Address.street_address, description: Faker::Restaurant.description, name: 'Delixous', photo:'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/sunny-white-kitchen-1551713554.jpg?crop=0.670xw:1.00xh;0.00801xw,0&resize=640:*', price:'$1938', latitude:'-34.577694', longitude:'-58.470662')
-kitchen4 = Kitchen.create!(user_id: andres.id, address: Faker::Address.street_address, description: Faker::Restaurant.description, name:'Alta comida', photo:'https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', price:'$1340', latitude:'-34.572778', longitude:'-58.480191')
+kitchen1 = Kitchen.create!(user_id: alejo.id, address: Faker::Address.street_address, description: Faker::Restaurant.description, name:'El buen sabor', remote_photo_url:"https://images.unsplash.com/photo-1541604193435-22287d32c2c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80", price:'1360 ', latitude:'-34.583391', longitude:'-58.435571')
+kitchen2 = Kitchen.create!(user_id: santiago.id, address: Faker::Address.street_address, description: Faker::Restaurant.description, name: 'Al buen fuego', remote_photo_url:"https://images.unsplash.com/photo-1556912167-f556f1f39fdf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1360&q=80", price:'4533 ', latitude:'-34.575574', longitude:'-58.443730')
+kitchen3 = Kitchen.create!(user_id: enzo.id, address: Faker::Address.street_address, description: Faker::Restaurant.description, name: 'Delixous', remote_photo_url:"https://images.unsplash.com/photo-1565183928294-7063f23ce0f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80", price:'1938', latitude:'-34.577694', longitude:'-58.470662')
+kitchen4 = Kitchen.create!(user_id: andres.id, address: Faker::Address.street_address, description: Faker::Restaurant.description, name:'Alta comida', remote_photo_url:"https://images.unsplash.com/photo-1512916194211-3f2b7f5f7de3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80", price:'1340', latitude:'-34.572778', longitude:'-58.480191')
 puts 'Creating appointments...'
 agc = Appointment.create!(user_id: alejo.id, kitchen_id: kitchen1.id, date: '2019-08-29')
 sy = Appointment.create!(user_id: santiago.id, kitchen_id: kitchen2.id, date: '2019-09-23')
