@@ -1,28 +1,35 @@
 <div class="kitchen-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-  <h1><%= @kitchen.address %></h1>
+  <h1><%= @kitchen.name %></h1>
 </div>
 <div class="container d-flex">
   <div class="col-lg-9 my-3">
     <h2>Description</h2>
+    <p class=""><%= @kitchen.address %></p>
     <p class=""><%= @kitchen.description %></p>
+
   </div>
   <div class="col-lg-3 my-3">
     <h2>Book:</h2>
     <%= simple_form_for [@kitchen, @appointment] do |f| %>
       <%= f.input :date, as: :string, input_html: { class: "datepicker"} %>
-      <%= f.button :submit, class: "btn btn-primary" %>
+      <%= f.button :submit, class: "btn btn-primary mb-2" %>
     <% end %>
-<%= cl_image_tag @kitchen.photo, height: 300, width: 400, crop: :fill %>
+    <%= cl_image_tag @kitchen.photo, height: 300, width: 400, crop: :fill %>
   </div>
 </div>
+
+
+
+
+
 <div class="wrapper-review">
   <h2>Reviews</h2>
    <% @kitchen.reviews.each do |review| %>
-    <div class="reviews-container border rounded">
+    <div class="reviews-container rounded-lg m-2 p-2">
       <div class="reviews-user">
-        <%= review.appointment.user.email %>
+        <img src="<%= review.user.avatar %>" alt="" width=50 class="avatar border border-dark"> <%= review.appointment.user.email %>
       </div>
-      <h3> <%= review.content %> </h3>
+      <h3 calss="mt-2"> <%= review.content %> </h3>
       <p><%= review.appointment.date %></p>
     </div>
     <% end %>
