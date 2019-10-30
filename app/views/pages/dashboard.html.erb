@@ -1,21 +1,18 @@
-<h1>Dashboard</h1>
-
-<h3>My kitchens</h3>
-
-<div class="cards">
-    <% @kitchens.each do |kitchen| %>
-       <%= render 'components/card', kitchen: kitchen %>
-    <% end %>
+<div class="container-fluid">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    <h1>Dashboard</h1>
   </div>
+  <h3 class="title-dashboard">My kitchens</h3>
+  <div class="cards">
+      <% @kitchens.each do |kitchen| %>
+         <%= render 'components/dashboard-card', kitchen: kitchen %>
+      <% end %>
+    </div>
 
-
-
-<h3>My appointments</h3>
-<ul>
-  <% @appointments.each do |appointment| %>
-    <%= link_to appointment.id, appointment_path(appointment) %>
-    <p>Description: <%= appointment.date %> </p>
-    <p>Address: <%= appointment.kitchen_id %> </p>
-    <p>Description: <%= appointment.user_id %> </p>
-    <% end %>
-</ul>
+  <h3 class="title-dashboard">My appointments</h3>
+  <div class="cards">
+    <% @appointments.each do |appointment| %>
+        <%= render 'components/appointment-card', appointment: appointment %>
+      <% end %>
+  </div>
+</div>

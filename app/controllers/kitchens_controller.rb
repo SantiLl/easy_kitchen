@@ -44,7 +44,7 @@ class KitchensController < ApplicationController
 
   def destroy
     @kitchen.destroy
-    redirect_to root_path
+    redirect_to dashboard_path
   end
 
   private
@@ -55,6 +55,6 @@ class KitchensController < ApplicationController
   end
 
   def kitchen_params
-    params.require(:kitchen).permit(:address, :description)
+    params.require(:kitchen).permit(:address, :description, :photo, :name, :price, :latitude, :longitude)
   end
 end

@@ -24,7 +24,7 @@
 
 .btn-box {
   position: absolute;
-  top: 8px;
+  top: 20px;
   right: 20px;
 }
 
@@ -41,6 +41,7 @@
     opacity: 1;
   }
 }
+
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {

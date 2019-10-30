@@ -1,8 +1,17 @@
-<h1>Appointments#show</h1>
-<p>Find me in app/views/appointments/show.html.erb</p>
+<h1>Appointment Information</h1>
+
+<ul class= "border mx-3 rounded py-2">
+  <li><strong>Kitchen:</strong> <%= @appointment.kitchen.name %></li>
+  <li><strong>Address:</strong> <%= @appointment.kitchen.address %></li>
+  <li><strong>User:</strong> <%= @appointment.user.email %></li>
+  <li><strong>Date:</strong> <%= @appointment.date %></li>
+</ul>
 
 
-<%= simple_form_for [@appointment, @review] do |f| %>
-  <%= f.input :content %>
-  <%= f.button :submit %>
+<% if Date.today.to_time.to_i > @appointment.date.to_time.to_i %>
+  <h3>Wirite a Review</h3>
+  <%= simple_form_for [@appointment, @review] do |f| %>
+    <%= f.input :content %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
 <% end %>
