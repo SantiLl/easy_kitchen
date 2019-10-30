@@ -46,6 +46,6 @@ class KitchensController < ApplicationController
   end
 
   def kitchen_params
-    params.require(:kitchen).permit(:address, :description)
+    params.require(:kitchen).permit(:address, :description, :photo)
   end
 end

@@ -13,6 +13,7 @@
       <%= f.input :date, as: :string, input_html: { class: "datepicker"} %>
       <%= f.button :submit, class: "btn btn-primary" %>
     <% end %>
+<%= cl_image_tag @kitchen.photo, height: 300, width: 400, crop: :fill %>
   </div>
 
 </div>
