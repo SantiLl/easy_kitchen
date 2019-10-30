@@ -23,8 +23,7 @@ class AppointmentsController < ApplicationController
   end
 
   def update
-    return redirect_to @appointment if @appointment.save
-
+    return redirect_to @appointment if @appointment.update(appointment_params)
     render :new
   end
 
