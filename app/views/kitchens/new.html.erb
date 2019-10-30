@@ -4,7 +4,7 @@
       <h1>Set a new kitchen</h1>
     </div>
     <%= simple_form_for [@user, @kitchen] do |f| %>
-      <%= f.input :address %>
+      <%= f.input :address, id: 'flat_address' %>
       <%= f.input :description %>
       <div class="links">
         <%= f.button :submit, class:'btn-card' %>
