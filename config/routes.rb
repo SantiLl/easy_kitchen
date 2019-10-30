@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     resources :appointments, only: [:new, :create]
   end
   resources :appointments, only: [:show, :edit, :update, :destroy]
-
+  get '/dashboard/', to: 'pages#dashboard', as: :dashboard
 end
