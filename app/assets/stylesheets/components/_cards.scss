@@ -21,7 +21,7 @@
     text-decoration: none;
   }
   img {
-    width: 100%;
+    width: 100%
   }
 }
 
@@ -43,4 +43,10 @@
     color: white;
     opacity: 1;
   }
+}
+
+#map {
+  position: sticky !important;
+  height: 100vh;
+  top: 0;
 }
