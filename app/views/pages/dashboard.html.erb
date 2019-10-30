@@ -1,0 +1,21 @@
+<h1>Dashboard</h1>
+
+<h3>My kitchens</h3>
+
+<div class="cards">
+    <% @kitchens.each do |kitchen| %>
+       <%= render 'components/card', kitchen: kitchen %>
+    <% end %>
+  </div>
+
+
+
+<h3>My appointments</h3>
+<ul>
+  <% @appointments.each do |appointment| %>
+    <%= link_to appointment.id, appointment_path(appointment) %>
+    <p>Description: <%= appointment.date %> </p>
+    <p>Address: <%= appointment.kitchen_id %> </p>
+    <p>Description: <%= appointment.user_id %> </p>
+    <% end %>
+</ul>
