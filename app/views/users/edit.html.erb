@@ -1,0 +1,16 @@
+
+<div class="wraper">
+  <div class="form-new">
+    <div class="title">
+      <h1>Edit your profile</h1>
+
+      <%= simple_form_for @user do |f| %>
+        <%= f.input :name %>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
