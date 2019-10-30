@@ -1,2 +1,32 @@
-<h1>Appointments#edit</h1>
-<p>Find me in app/views/appointments/edit.html.erb</p>
+<div class="wraper">
+  <div class="form-new">
+    <div class="title">
+      <h1>Edit Appointment</h1>
+
+      <%= simple_form_for [@kitchen, @appointment] do |f| %>
+        <%= f.input :date, as: :string, input_html: { class: "datepicker"} %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

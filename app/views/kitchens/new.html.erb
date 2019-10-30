@@ -6,6 +6,10 @@
     <%= simple_form_for [@user, @kitchen] do |f| %>
       <%= f.input :address %>
       <%= f.input :description %>
+      <%= f.input :name %>
+      <%= f.input :price %>
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
       <div class="links">
         <%= f.button :submit, class:'btn-card' %>
         <%= link_to 'Home', root_path, class: "btn-home" %>
