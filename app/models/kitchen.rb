@@ -1,6 +1,6 @@
 class Kitchen < ApplicationRecord
   belongs_to :user
-  has_many :appointments
+  has_many :appointments, dependent: :destroy
   has_many :reviews, through: :appointments
   validates :address, presence: true
   validates :photo, presence: true
