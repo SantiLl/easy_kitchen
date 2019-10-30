@@ -1,4 +1,3 @@
-
 <div class="kitchen-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
   <h1><%= @kitchen.address %></h1>
 </div>
@@ -6,7 +5,7 @@
 <div class="container d-flex">
   <div class="col-lg-9 my-3">
     <h2>Description</h2>
-    <p class=""><%= @kitchen.description %> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum earum, deserunt qui adipisci sed dolore vel quibusdam laboriosam atque sit! Minima maiores cum commodi cupiditate vel quia laborum deleniti neque. ipsum dolor sit amet, consectetur adipisicing elit. Amet voluptatem, beatae, eos cupiditate unde eum atque doloremque quas vero vitae ratione! Suscipit rem vitae doloremque qui autem dicta asperiores dolores. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, provident, officiis ad deserunt ipsam incidunt non quasi sint distinctio eveniet earum. Aliquid accusamus, earum aperiam tempore voluptates, minus harum eligendi?</p>
+    <p class=""><%= @kitchen.description %></p>
   </div>
   <div class="col-lg-3 my-3">
     <h2>Book:</h2>
@@ -15,4 +14,20 @@
       <%= f.button :submit, class: "btn btn-primary" %>
     <% end %>
   </div>
+
+</div>
+
+<div class="wrapper-review">
+  <h2>Reviews</h2>
+
+   <% @kitchen.reviews.each do |review| %>
+    <div class="reviews-container border rounded">
+      <div class="reviews-user">
+        <%= review.appointment.user.email %>
+      </div>
+      <h3> <%= review.content %> </h3>
+      <p><%= review.appointment.date %></p>
+    </div>
+
+    <% end %>
 </div>
