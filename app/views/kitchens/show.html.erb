@@ -1,4 +1,4 @@
-<div class="kitchen-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+<div class="kitchen-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @kitchen.photo %>)">
   <h1><%= @kitchen.address %></h1>
 </div>
 <div class="container d-flex">
@@ -12,7 +12,6 @@
       <%= f.input :date, as: :string, input_html: { class: "datepicker"} %>
       <%= f.button :submit, class: "btn btn-primary" %>
     <% end %>
-<%= cl_image_tag @kitchen.photo, height: 300, width: 400, crop: :fill %>
   </div>
 </div>
 <div class="wrapper-review">
