@@ -35,6 +35,15 @@
   right: 20px;
 }
 
+.btn-box-show {
+  position: absolute;
+  top: 460px;
+  right: 130px;
+  .btn-card {
+    margin-right: 10px;
+  }
+}
+
 .btn-card {
   background-color: $btn-color;
   padding: 5px;
