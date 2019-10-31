@@ -2,8 +2,7 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 5px;
-  margin: 10px;
+  grid-gap: 20px;
   a {
     text-decoration: none;
   }
@@ -13,20 +12,47 @@
 }
 
 .card-kitchen{
+  height: 340px;
   position: relative;
   background-color: white;
   border-radius: 4px;
-  &:hover{
   box-shadow: 1px 1px 5px lightgrey;
+  margin-top: 20px;
+  &:hover{
+  box-shadow: 1px 1px 5px black;
   }
   a{
     text-decoration: none;
   }
   img {
     width: 100%;
-    height: 300px;
+    height: 200px;
     object-fit: cover;
   }
+}
+
+.card-description {
+  font-size: 14px;
+  color: rgba(0,0,0,0.8);
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-address {
+  font-size: 14px;
+  margin-bottom: 0;
+  i {
+    color: $blue;
+    padding-right: 5px;
+  }
+}
+
+.card-price {
+  font-size: 14px;
+  margin-bottom: 0;
+  color: $blue;
+  font-weight: bold;
 }
 
 .btn-box {
@@ -74,4 +100,16 @@
   position: sticky !important;
   height: 100vh;
   top: 0;
+}
+
+.star-rating {
+  position: absolute;
+  top: 184px;
+  font-size: 14px;
+  right: 10px;
+  background-color: white;
+  padding: 5px 10px;
+  color: #1d3756;
+  border-radius: 20px;
+  border: 1px solid #1e375687;
 }
