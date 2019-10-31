@@ -10,7 +10,8 @@ class KitchensController < ApplicationController
       {
         lat: kitchen.latitude,
         lng: kitchen.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { kitchen: kitchen })
+        infoWindow: render_to_string(partial: "info_window", locals: { kitchen: kitchen }),
+        price: kitchen.price
       }
     end
   end

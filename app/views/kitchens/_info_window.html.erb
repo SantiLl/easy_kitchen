@@ -1,2 +1,9 @@
-<h2><%= kitchen.name %></h2>
-<p><%= kitchen.address %></p>
+<div style="height: 300px; width: 250px; border-radius-top-right: 30px !important;">
+  <div style="background-image: url('<%= cl_image_path(kitchen.photo) %>'); height: 200px; width: 250px; border-top-left-radius: 30px; border-top-right-radius: 30px;">
+  </div>
+  <div class="text-left p-letter pl-3">
+    <h2><%= kitchen.name %></h2>
+    <p class="mb-1"><%= kitchen.address %></p>
+    <span><strong>$<%= kitchen.price %></strong> / day</span>
+  </div>
+</div>

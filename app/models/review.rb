@@ -4,4 +4,8 @@ class Review < ApplicationRecord
   def user
     appointment.user
   end
+
+  def author
+    user.name.nil? ? user.email : user.name
+  end
 end
