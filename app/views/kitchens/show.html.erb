@@ -30,8 +30,7 @@
   <% end %>
 </div>
 
-
-
+<%= render "shared/stars", kitchen: @kitchen %>
 
 
 <div class="wrapper-review">
@@ -41,6 +40,13 @@
       <div class="reviews-user">
         <img src="<%= review.user.avatar %>" alt="" width=50 class="avatar border border-dark">
         <p class="p-letter"><%= review.author %></p>
+        <% (1..5).each do |num|  %>
+          <% if num <= review.rating %>
+            <i class="fas fa-star"></i>
+          <% else %>
+            <i class="far fa-star"></i>
+          <% end %>
+        <% end %>
       </div>
       <h3 class="mt-2 p-letter"> <%= review.content %> </h3>
       <p class="p-letter"><%= review.appointment.date %></p>

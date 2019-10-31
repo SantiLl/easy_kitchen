@@ -9,13 +9,14 @@
     <%= render 'components/card-appointment' %>
 
 
-    <% if Date.today.to_time.to_i > @appointment.date.to_time.to_i %>
+  <%# if Date.today.to_time.to_i > @appointment.date.to_time.to_i %>
     <h3>Wirite a Review</h3>
     <%= simple_form_for [@appointment, @review] do |f| %>
-    <%= f.input :content %>
-    <%= f.button :submit, class: "btn btn-primary" %>
+      <%= f.input :content %>
+      <%= f.input :rating, collection: ["0", "1", "2", "3", "4", "5"]  %>
+      <%= f.button :submit, class: "btn btn-primary" %>
     <% end %>
-    <% end %>
+  <%# end %>
   </div>
 </div>
 
