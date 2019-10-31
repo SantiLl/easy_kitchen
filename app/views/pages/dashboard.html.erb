@@ -10,9 +10,22 @@
     </div>
 
   <h3 class="title-dashboard">My appointments</h3>
-  <div class="cards">
+  <div class="cards d-flex">
     <% @appointments.each do |appointment| %>
+      <div class="col-lg-3">
         <%= render 'components/appointment-card', appointment: appointment %>
+      </div>
+    <% end %>
+  </div>
+
+  <h3 class="title-dashboard">My Kitchen Appointments:</h3>
+  <div class="cards d-flex">
+    <% @kitchens.each do |kitchen| %>
+      <% kitchen.appointments.each do |appointment| %>
+        <div class="col-lg-3">
+          <%= render 'components/kitchen-appointments', appointment: appointment %>
+        </div>
       <% end %>
+    <% end %>
   </div>
 </div>

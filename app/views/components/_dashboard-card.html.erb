@@ -1,19 +1,19 @@
 <div class="card-kitchen">
-<%= link_to kitchen_path(kitchen) do %>
-<%= cl_image_tag kitchen.photo %>
-  <div class="card-body">
-    <h5 class="card-title text-dark"><%= kitchen.name %></h5>
-    <p class="card-text text-dark">Address: <%= kitchen.address %></p>
-    <p class="card-text text-dark">$ <%= kitchen.price %></p>
-    <p class="card-text text-dark mb-3" >Description: <%= kitchen.description.truncate(50) %></p>
+  <%= link_to kitchen_path(kitchen) do %>
+    <%= cl_image_tag kitchen.photo %>
+    <div class="card-body">
+      <h5 class="card-title text-dark"><%= kitchen.name %></h5>
+      <p class="card-text text-dark">Address: <%= kitchen.address %></p>
+      <p class="card-text text-dark">$ <%= kitchen.price %></p>
+      <p class="card-text text-dark mb-3" >Description: <%= kitchen.description.truncate(50) %></p>
       <div class="btn-box">
         <% if policy(kitchen).edit? %>
-         <%= link_to 'edit', edit_kitchen_path(kitchen), class: 'btn-card' %>
+          <%= link_to 'edit', edit_kitchen_path(kitchen), class: 'btn-card' %>
         <% end %>
         <% if policy(kitchen).destroy? %>
-         <%= link_to content_tag(:i, "", class: 'fas fa-trash'), kitchen_path(kitchen), method: :delete, class: 'btn-card-trash'  %>
+          <%= link_to content_tag(:i, "", class: 'fas fa-trash'), kitchen_path(kitchen), method: :delete, class: 'btn-card-trash'  %>
         <% end %>
       </div>
-  </div>
+    </div>
   <% end %>
 </div>
