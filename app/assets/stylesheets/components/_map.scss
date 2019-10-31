@@ -1,14 +1,50 @@
 .mapboxgl-popup {
-  max-width: 200px;
+  max-width: 300px;
 }
+
+.mapboxgl-popup-close-button {
+  right: 15px !important;
+  top: 15px !important;
+  border: 0 !important;
+  // border-radius: 0 3px 0 0 !important;
+  cursor: pointer !important;
+  background-color: white !important;
+  border-radius: 30px !important;
+  height: 30px !important;
+  width: 30px !important;
+  font-size: 20px !important;
+}
+
 
 .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
+  padding: 0 !important;
+  border-radius: 30px !important;
+  width: 250px !important;
 }
 
 #map {
   position: sticky !important;
   height: 100vh;
   top: 0;
+}
+
+.marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 28px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 0px 1px, rgba(0, 0, 0, 0.12) 0px 4px 16px;
+  color: rgb(72, 72, 72);
+  height: 28px;
+  padding: 0px 8px;
+  white-space: nowrap;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.marker:hover {
+  color: rgb(0, 132, 137);
 }

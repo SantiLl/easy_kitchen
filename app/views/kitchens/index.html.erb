@@ -2,6 +2,14 @@
 <div class="container-fluid d-flex mt-3">
     <div class="col-lg-6">
       <h2 class="text-center">Our favorite kitchens</h2>
+      <%= form_tag kitchens_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a kitchen"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
       <div class="cards">
         <% @kitchens.each do |kitchen| %>
            <%= render 'components/card', kitchen: kitchen %>
