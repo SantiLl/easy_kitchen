@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+
   def create
     @review = Review.new(review_params)
     @appointment = Appointment.find(params[:appointment_id])

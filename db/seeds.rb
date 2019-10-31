@@ -16,6 +16,9 @@ alejo = User.create!(email: 'alejo@easy-kitchen.com', password: 'kitchen', remot
 santiago = User.create!(email: 'santiago@easy-kitchen.com', password: 'kitchen', remote_photo_url: 'https://ca.slack-edge.com/T02NE0241-UNDKPE0D6-3ae91634e71a-72')
 enzo = User.create!(email: 'enzo@easy-kitchen.com', password: 'kitchen', remote_photo_url:'https://ca.slack-edge.com/T02NE0241-UNDJE9Y1J-2cd2134f004a-72')
 andres = User.create!(email: 'andres@easy-kitchen.com', password: 'kitchen', remote_photo_url:'https://ca.slack-edge.com/T02NE0241-UNDCB0BTN-6e9c411fc926-512')
+sebas = User.create!(email: 'sebastian@easy-kitchen.com', password: 'kitchen', remote_photo_url:'https://ca.slack-edge.com/T02NE0241-U56TR1Q0M-fef167a62a5a-72')
+fer = User.create!(email: 'fernando@easy-kitchen.com', password: 'kitchen', remote_photo_url:'https://ca.slack-edge.com/T02NE0241-UK7E344JG-407beaec7aee-72')
+guille = User.create!(email: 'guillermo@easy-kitchen.com', password: 'kitchen', remote_photo_url:'https://ca.slack-edge.com/T02NE0241-UD4D68QS0-591cb8267b1c-72')
 puts 'Creating kitchens...'
 kitchen1 = Kitchen.create!(user_id: alejo.id, address: Faker::Address.street_address, description: Faker::Restaurant.description, name:'El buen sabor', remote_photo_url:"https://images.unsplash.com/photo-1541604193435-22287d32c2c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80", price:'1360 ', latitude:'-34.583391', longitude:'-58.435571')
 kitchen2 = Kitchen.create!(user_id: santiago.id, address: Faker::Address.street_address, description: Faker::Restaurant.description, name: 'Al buen fuego', remote_photo_url:"https://images.unsplash.com/photo-1556912167-f556f1f39fdf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1360&q=80", price:'4533 ', latitude:'-34.575574', longitude:'-58.443730')

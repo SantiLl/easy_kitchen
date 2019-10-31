@@ -5,10 +5,10 @@ class ReviewPolicy < ApplicationPolicy
     end
   end
   def create?
-    return true
+    allow_user?
   end
 
-  def new?
-    return false
+  def allow_user?
+    record.user == user
   end
 end

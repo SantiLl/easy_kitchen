@@ -6,12 +6,12 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    allow_user?
   end
 
   private
 
   def allow_user?
-    # record.user == user
+    record == user
   end
 end
