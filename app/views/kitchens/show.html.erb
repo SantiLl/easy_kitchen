@@ -3,10 +3,9 @@
 </div>
 <div class="container d-flex">
   <div class="col-lg-9 my-3">
-    <h2>Description</h2>
-    <p class=""><%= @kitchen.address %></p>
-    <p class=""><%= @kitchen.description %></p>
-
+    <h2 class="sub-title">Description</h2>
+    <p class="p-letter"><%= @kitchen.address %></p>
+    <p class="p-letter"><%= @kitchen.description %></p>
  </div>
 
   <% if @kitchen.user == current_user %>
@@ -36,14 +35,15 @@
 
 
 <div class="wrapper-review">
-  <h2>Reviews</h2>
+  <h2 class="sub-title">Reviews</h2>
    <% @kitchen.reviews.each do |review| %>
     <div class="reviews-container rounded-lg m-2 p-2">
       <div class="reviews-user">
-        <img src="<%= review.user.avatar %>" alt="" width=50 class="avatar border border-dark"> <%= review.appointment.user.email %>
+        <img src="<%= review.user.avatar %>" alt="" width=50 class="avatar border border-dark">
+        <p class="p-letter"><%= review.author %></p>
       </div>
-      <h3 calss="mt-2"> <%= review.content %> </h3>
-      <p><%= review.appointment.date %></p>
+      <h3 class="mt-2 p-letter"> <%= review.content %> </h3>
+      <p class="p-letter"><%= review.appointment.date %></p>
     </div>
     <% end %>
 </div>
