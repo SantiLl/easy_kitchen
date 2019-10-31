@@ -4,10 +4,10 @@
       <h1>Set a new kitchen</h1>
     </div>
     <%= simple_form_for [@user, @kitchen] do |f| %>
-      <%= f.input :address, id: 'flat_address' %>
-      <%= f.input :description %>
       <%= f.input :name %>
+      <%= f.input :address, id: 'flat_address' %>
       <%= f.input :price %>
+      <%= f.input :description, as: :text, html_options: { rows: 10 } %>
       <%= f.input :photo %>
       <%= f.input :photo_cache, as: :hidden %>
       <div class="links">
