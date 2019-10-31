@@ -2,7 +2,6 @@
   <div class="card-body">
     <h5 class="card-title">Appointment <%= appointment.id %></h5>
     <h6 class="card-subtitle mb-2 text-muted">Date: <%= appointment.date %></h6>
-    <p class="card-text">User: <%= appointment.user.name %></p>
     <p class="card-text">Kitchen: <%= appointment.kitchen.name %></p>
     <p class="card-text">Address: <%= appointment.kitchen.address %></p>
      <div class="btn-box">
@@ -10,7 +9,7 @@
          <%= link_to 'edit', edit_appointment_path(appointment), class: 'btn-card' %>
         <% end %>
         <% if policy(appointment).destroy? %>
-         <%= link_to content_tag(:i, "", class: 'fas fa-trash'), appointment_path(appointment), method: :delete, class: 'btn-card'  %>
+         <%= link_to content_tag(:i, "", class: 'fas fa-trash'), appointment_path(appointment), method: :delete, class: 'btn-card-trash'  %>
         <% end %>
       </div>
   </div>

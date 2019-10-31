@@ -7,7 +7,9 @@
   a {
     text-decoration: none;
   }
-
+  .card-body {
+    color: $black;
+  }
 }
 
 .card-kitchen{
@@ -47,6 +49,19 @@
   }
 }
 
+.btn-card-trash {
+  background-color: $red;
+  padding: 5px;
+  border-radius: 4px;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  opacity: 0.8;
+  &:hover{
+    color: white;
+    opacity: 1;
+  }
+}
 #map {
   position: sticky !important;
   height: 100vh;
