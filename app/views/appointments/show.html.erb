@@ -1,11 +1,8 @@
-<h1>Appointment Information</h1>
+<div class="container d-flex justify-content-center mt-5r">
+<div class="col-md-6 ">
 
-<ul class= "border mx-3 rounded py-2">
-  <li><strong>Kitchen:</strong> <%= @appointment.kitchen.name %></li>
-  <li><strong>Address:</strong> <%= @appointment.kitchen.address %></li>
-  <li><strong>User:</strong> <%= @appointment.user.email %></li>
-  <li><strong>Date:</strong> <%= @appointment.date %></li>
-</ul>
+
+<%= render 'components/card-appointment' %>
 
 
 <% if Date.today.to_time.to_i > @appointment.date.to_time.to_i %>
@@ -15,3 +12,6 @@
     <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>
 <% end %>
+</div>
+</div>
+</div>

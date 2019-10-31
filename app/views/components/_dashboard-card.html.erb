@@ -11,7 +11,7 @@
          <%= link_to 'edit', edit_kitchen_path(kitchen), class: 'btn-card' %>
         <% end %>
         <% if policy(kitchen).destroy? %>
-         <%= link_to content_tag(:i, "", class: 'fas fa-trash'), kitchen_path(kitchen), method: :delete, class: 'btn-card'  %>
+         <%= link_to content_tag(:i, "", class: 'fas fa-trash'), kitchen_path(kitchen), method: :delete, class: 'btn-card-trash'  %>
         <% end %>
       </div>
   </div>
