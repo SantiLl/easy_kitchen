@@ -6,7 +6,7 @@ class KitchensController < ApplicationController
     @kitchens = if params[:query].present?
                   Kitchen.search(params[:query])
                 else
-                  Kitchen.order(created_at: :desc)
+                  Kitchen.order(created_at: :desc).limit(6)
                 end
 
     @kitchens = @kitchens.geocoded # returns flats with coordinates
@@ -14,7 +14,8 @@ class KitchensController < ApplicationController
       {
         lat: kitchen.latitude,
         lng: kitchen.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { kitchen: kitchen })
+        infoWindow: render_to_string(partial: "info_window", locals: { kitchen: kitchen }),
+        price: kitchen.price
       }
     end
     policy_scope(Kitchen)
