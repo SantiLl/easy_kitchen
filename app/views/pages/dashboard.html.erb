@@ -15,4 +15,13 @@
         <%= render 'components/appointment-card', appointment: appointment %>
       <% end %>
   </div>
+
+  <h3 class="title-dashboard">My Kitchen Appointments:</h3>
+  <div class="cards">
+    <% @kitchens.each do |kitchen| %>
+      <% kitchen.appointments.each do |appointment| %>
+        <%= render 'components/kitchen-appointments', appointment: appointment %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
