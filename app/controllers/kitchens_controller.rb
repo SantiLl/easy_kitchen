@@ -1,7 +1,8 @@
 class KitchensController < ApplicationController
   before_action :set_kitchen, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
-
+  # geocoded_by :address
+  # after_validation :geocode, if: :will_save_change_to_address?
   def index
     @kitchens = if params[:query].present?
                   Kitchen.search(params[:query])
@@ -9,7 +10,7 @@ class KitchensController < ApplicationController
                   Kitchen.order(created_at: :desc).limit(6)
                 end
 
-    @kitchens = @kitchens.geocoded # returns flats with coordinates
+    @kitchens = @kitchens # returns flats with coordinates
     @markers = @kitchens.map do |kitchen|
       {
         lat: kitchen.latitude,
