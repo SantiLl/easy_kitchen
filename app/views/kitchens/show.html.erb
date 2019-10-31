@@ -1,55 +1,71 @@
 <div class="kitchen-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @kitchen.photo %>)">
-  <h1><%= @kitchen.name %></h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mt-3">
+      <div class="d-flex justify-content-between">
+        <h1 class="name-title"><%= @kitchen.name %></h1>
+        <div class="">
+          <%= cl_image_tag @kitchen.user.photo, class: 'avatar border border-dark' %>
+          <%= @kitchen.user.name %>
+        </div>
+      </div>
+      <p class="address-text"><%= @kitchen.address %></p>
+      <p class="description-text mb-0"><strong>Description:</strong></p>
+      <p class="p-letter mt-0 mb-3"><%= @kitchen.description %></p>
+      <%= render "shared/stars", kitchen: @kitchen %>
+
+
+      <div class="">
+        <h2 class="sub-title">Reviews</h2>
+         <% @kitchen.reviews.each do |review| %>
+          <div class="reviews-container rounded-lg">
+            <div class="reviews-user">
+              <img src="<%= review.user.avatar %>" alt="" width=50 class="avatar border border-dark">
+              <p class="p-letter"><%= review.author %></p>
+              <% (1..5).each do |num|  %>
+                <% if num <= review.rating %>
+                  <i class="fas fa-star"></i>
+                <% else %>
+                  <i class="far fa-star"></i>
+                <% end %>
+              <% end %>
+            </div>
+            <h3 class="mt-2 p-letter"> <%= review.content %> </h3>
+            <p class="p-letter"><%= review.appointment.date %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <% if @kitchen.user == current_user %>
+        <div class="btn-box-show">
+          <ul>
+          <% if policy(@kitchen).edit? %>
+           <%= link_to 'Edit kitchen', edit_kitchen_path(@kitchen), class: 'btn-card' %>
+          <% end %>
+          <% if policy(@kitchen).destroy? %>
+           <%= link_to 'Delete kitchen', kitchen_path(@kitchen),  method: :delete, class: 'btn-card-trash' %>
+          <% end %>
+          </ul>
+        </div>
+      <% else %>
+        <div class="booking-card p-3 border rounded-lg">
+            <p class="price-text"><strong>$<%= @kitchen.price %></strong> por día</p>
+          <h2>Book:</h2>
+          <%= simple_form_for [@kitchen, @appointment] do |f| %>
+            <p class="my-1 p-0">Date:</p>
+            <%= f.input :date, as: :string, input_html: { class: "datepicker"}, label: false %>
+            <%= f.button :submit, class: "btn btn-primary mb-2 w-100" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 <div class="container d-flex">
   <div class="col-lg-9 my-3">
-    <h2 class="sub-title">Description</h2>
-    <p class="p-letter"><%= @kitchen.address %></p>
-    <p class="p-letter"><%= @kitchen.description %></p>
  </div>
-
-  <% if @kitchen.user == current_user %>
-    <div class="btn-box-show">
-      <ul>
-      <% if policy(@kitchen).edit? %>
-       <%= link_to 'Edit kitchen', edit_kitchen_path(@kitchen), class: 'btn-card' %>
-      <% end %>
-      <% if policy(@kitchen).destroy? %>
-       <%= link_to 'Delete kitchen', kitchen_path(@kitchen),  method: :delete, class: 'btn-card-trash' %>
-      <% end %>
-      </ul>
-    </div>
-  <% else %>
-    <div class="col-lg-3 my-3">
-      <h2>Book:</h2>
-      <%= simple_form_for [@kitchen, @appointment] do |f| %>
-        <%= f.input :date, as: :string, input_html: { class: "datepicker"} %>
-        <%= f.button :submit, class: "btn btn-primary mb-2" %>
-      <% end %>
-    </div>
-  <% end %>
 </div>
 
-<%= render "shared/stars", kitchen: @kitchen %>
-
-
-<div class="wrapper-review">
-  <h2 class="sub-title">Reviews</h2>
-   <% @kitchen.reviews.each do |review| %>
-    <div class="reviews-container rounded-lg m-2 p-2">
-      <div class="reviews-user">
-        <img src="<%= review.user.avatar %>" alt="" width=50 class="avatar border border-dark">
-        <p class="p-letter"><%= review.author %></p>
-        <% (1..5).each do |num|  %>
-          <% if num <= review.rating %>
-            <i class="fas fa-star"></i>
-          <% else %>
-            <i class="far fa-star"></i>
-          <% end %>
-        <% end %>
-      </div>
-      <h3 class="mt-2 p-letter"> <%= review.content %> </h3>
-      <p class="p-letter"><%= review.appointment.date %></p>
-    </div>
-    <% end %>
-</div>

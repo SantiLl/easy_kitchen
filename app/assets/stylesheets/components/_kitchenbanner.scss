@@ -1,7 +1,7 @@
 .kitchen-banner {
   background-size: cover;
   background-position: center;
-  height: 400px;
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,4 +11,37 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 0px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 100%;
+}
+
+.name-title {
+  font-size: 32px;
+  color: rgb(72, 72, 72);
+  font-weight: bold;
+  margin: 0px;
+}
+
+.address-text {
+  font-size: 14px;
+  color: rgb(72, 72, 72);
+}
+
+.description-text {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.booking-card {
+  position: sticky;
+  top: 10px;
+}
+
+.price-text strong {
+  font-size: 20px;
+  font-weight: bold;
+
+}
+
+.price-text {
+  color: black;
 }
