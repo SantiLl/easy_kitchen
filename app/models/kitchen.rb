@@ -1,4 +1,5 @@
 class Kitchen < ApplicationRecord
+  include PgSearch::Model
   belongs_to :user
   has_many :appointments, dependent: :destroy
   has_many :reviews, through: :appointments
@@ -10,4 +11,10 @@ class Kitchen < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   mount_uploader :photo, PhotoUploader
+
+  pg_search_scope :search,
+    against: [:name, :address, :price, :description],
+    using: {
+      tsearch: { prefix: true }
+    }
 end

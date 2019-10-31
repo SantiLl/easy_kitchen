@@ -3,9 +3,13 @@ class KitchensController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @kitchens = policy_scope(Kitchen).order(created_at: :desc)
+    @kitchens = if params[:query].present?
+                  Kitchen.search(params[:query])
+                else
+                  Kitchen.order(created_at: :desc).limit(6)
+                end
 
-    @kitchens = Kitchen.geocoded # returns flats with coordinates
+    @kitchens = @kitchens.geocoded # returns flats with coordinates
     @markers = @kitchens.map do |kitchen|
       {
         lat: kitchen.latitude,
@@ -14,6 +18,7 @@ class KitchensController < ApplicationController
         price: kitchen.price
       }
     end
+    policy_scope(Kitchen)
   end
 
   def show
