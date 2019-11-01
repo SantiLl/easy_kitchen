@@ -1,12 +1,23 @@
 
-<div class="card-trip">
-  <img src="<%= @appointment.kitchen.photo %>" />
-  <div class="card-trip-infos">
+
+<%= link_to kitchen_path(@appointment.kitchen) do %>
+<div class="card-kitchen">
+  <%= cl_image_tag @appointment.kitchen.photo %>
+  <div class="star-rating">
+    <%= render 'shared/stars', kitchen: @appointment.kitchen %>
+  </div>
+  <div class="card-body">
     <div>
-      <h1><%= @appointment.kitchen.name %> </h1>
-      <h2><i class="fas fa-map-marker-alt"></i> <%= @appointment.kitchen.address %></h2>
-      <p><i class="fas fa-calendar-day"></i> <%= @appointment.date %></p>
+      <h5 class="card-title mb-1"><%= @appointment.kitchen.name %></h5>
+      <p class="card-text overflow-ellipsis card-description"><i class="fas fa-calendar-day"></i> <%= @appointment.date %></p>
     </div>
-    <h2 class="card-trip-pricing"><i class="fas fa-dollar-sign"></i><%=@appointment.kitchen.price%></h2>
-      </div>
+    <div class="d-flex justify-content-between mt-3">
+      <p class="card-text card-address"><i class="fas fa-map-marker-alt"></i> <%= @appointment.kitchen.address %></p>
+      <p class="card-text card-price">$ <%= @appointment.kitchen.price %></p>
+
+
+    </div>
+  </div>
 </div>
+  <% end %>
+
