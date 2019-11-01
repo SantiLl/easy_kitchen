@@ -3,6 +3,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
   a {
     text-decoration: none;
   }
@@ -13,6 +16,8 @@
     }
   }
 }
+
+
 
 .card-kitchen{
   height: 340px;
@@ -45,6 +50,9 @@
 .card-address {
   font-size: 14px;
   margin-bottom: 0;
+  height: 20px;
+  overflow: hidden;
+
   i {
     color: $blue;
     padding-right: 5px;
@@ -56,6 +64,8 @@
   margin-bottom: 0;
   color: $blue;
   font-weight: bold;
+  min-width: 50px;
+  text-align: right;
 }
 
 .btn-box {

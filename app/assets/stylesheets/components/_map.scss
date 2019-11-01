@@ -22,6 +22,10 @@
   padding: 0 !important;
   border-radius: 30px !important;
   width: 250px !important;
+  button {
+    border: 1px solid rgba(0,0,0,0.6) !important;
+    outline: none;
+  }
 }
 
 #map {
@@ -47,4 +51,24 @@
 
 .marker:hover {
   color: rgb(0, 132, 137);
+}
+
+.info-window-data {
+  h2 {
+    margin-bottom: 5px;
+    margin-top: 10px;
+    font-size: 20px;
+  }
+  p {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 25px;
+  }
+  div {
+    justify-content: flex-end;
+    span {
+      padding-right: 25px;
+    }
+  }
 }

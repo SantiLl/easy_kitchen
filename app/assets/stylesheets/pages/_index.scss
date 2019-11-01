@@ -2,3 +2,8 @@
 @import "home";
 @import "reviews";
 @import 'dashboard';
+
+#query:focus {
+    box-shadow: none;
+    border-color: $gray;
+}
