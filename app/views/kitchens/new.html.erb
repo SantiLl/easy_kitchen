@@ -1,14 +1,15 @@
   <div class="wraper">
-  <div class="form-new">
+  <div class="form-new ">
     <div class="title">
       <h1>Set a new kitchen</h1>
     </div>
     <%= simple_form_for [@user, @kitchen] do |f| %>
-      <%= f.input :name %>
-      <%= f.input :address, id: 'flat_address' %>
-      <%= f.input :price %>
-      <%= f.input :description, as: :text, html_options: { rows: 10 } %>
-      <%= f.input :photo %>
+      <%= f.input :name, label: false, placeholder: 'Name' %>
+      <%= f.input :address, id: 'flat_address', label: false, placeholder: 'Address' %>
+      <%= f.input :price,label: false, placeholder: 'Price' %>
+      <%= f.input :description, as: :text, html_options: { rows: 10 }, label: false, placeholder: 'Description' %>
+      <p style= 'font-size: 12px, color: white' class= 'my-1'>Photo:</p>
+      <%= f.input :photo,label: false %>
       <%= f.input :photo_cache, as: :hidden %>
       <div class="links">
         <%= f.button :submit, class:'btn-card' %>
