@@ -15,7 +15,7 @@
        <%= link_to 'Edit kitchen', edit_kitchen_path(@kitchen), class: 'btn-card' %>
       <% end %>
       <% if policy(@kitchen).destroy? %>
-       <%= link_to 'Delete kitchen', kitchen_path(@kitchen),  method: :delete, class: 'btn-card-trash' %>
+       <%= link_to 'Delete kitchen', kitchen_path(@kitchen),  method: :delete, data: { confirm: "Are you sure you want to delete this item?"}, class: 'btn-card-trash' %>
       <% end %>
       </ul>
     </div>
