@@ -24,6 +24,10 @@ class KitchensController < ApplicationController
 
   def show
     @appointment = Appointment.new
+    @disable_dates = []
+    @kitchen.appointments.each do |appointment|
+      @disable_dates << appointment.date
+    end
   end
 
   def new
