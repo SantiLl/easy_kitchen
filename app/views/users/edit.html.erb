@@ -5,8 +5,9 @@
       <h1>Edit your profile</h1>
 
       <%= simple_form_for @user do |f| %>
-        <%= f.input :name %>
-        <%= f.input :photo %>
+        <%= f.input :name, label: false, placeholder: 'Name' %>
+        <p style= 'font-size: 12px, color: white' class= 'my-1 text-left'>Photo:</p>
+        <%= f.input :photo, label: false  %>
         <%= f.input :photo_cache, as: :hidden %>
         <%= f.button :submit, class: "btn btn-primary" %>
       <% end %>
