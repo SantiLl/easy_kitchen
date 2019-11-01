@@ -17,7 +17,7 @@
     <div class="tab-content" id="myTabContent">
 
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-      <div class="cards">
+      <div class="cards col-md-8">
           <% @kitchens.each do |kitchen| %>
              <%= render 'components/dashboard-card', kitchen: kitchen %>
           <% end %>
