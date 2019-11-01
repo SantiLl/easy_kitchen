@@ -2,14 +2,13 @@
 <div class="container-fluid mt-3">
   <div class="row">
     <div class="col-lg-8 col-md-12">
-      <h2 class="text-center">Our favorite kitchens</h2>
       <%= form_tag kitchens_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
           placeholder: "Find a kitchen"
         %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <%= submit_tag "Search", class: "btn btn-primary rounded-right" %>
       <% end %>
       <div class="cards">
         <% @kitchens.each do |kitchen| %>
@@ -25,7 +24,8 @@
             height: 100vh;"
             data-markers="<%= @markers.to_json %>"
             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-      ></div>
+      >
+      </div>
     </div>
   </div>
 </div>
