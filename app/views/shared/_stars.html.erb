@@ -1,9 +1,9 @@
-<% (1..5).each do |num|  %>
-  <% if 0.5 > kitchen.average_rating - num && kitchen.average_rating - num < 1 %>
-    <i class="fas fa-star-half-alt"></i>
-  <% elsif num <= kitchen.average_rating %>
+<% kitchen.average_rating.to_i.times do %>
     <i class="fas fa-star"></i>
-  <% else %>
+<% end %>
+<% (kitchen.average_rating - kitchen.average_rating.to_i).to_i.times do %>
+    <i class="fas fa-star-half-alt"></i>
+<% end %>
+<% (5 - kitchen.average_rating.ceil).times do %>
     <i class="far fa-star"></i>
-  <% end %>
 <% end %>
