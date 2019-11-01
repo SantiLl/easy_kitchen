@@ -1,6 +1,6 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-dark navbar-lewagon">
   <%= link_to "/", class: "navbar-brand" do %>
-    <%= image_tag asset_path("easykitchen-logo.png") %>
+    <%= image_tag asset_path("https://www.freelogodesign.org/file/app/client/thumb/c4bd4737-e562-48e1-9d41-2454e06f9eb7_200x200.png?1572557576922") %>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,37 +9,21 @@
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-
-      <li class="nav-item ml-3 btn btn-light">
-        <%= link_to 'Create kitchen', new_kitchen_path, class: 'nav-link'  %>
-      </li>
-
-     <!--  <li class="nav-item ml-3 btn btn-light"> -->
-        <%#= link_to 'My appointments', appointment_path, class: 'nav-link'  %>
-      <!-- </li> -->
-
-
-
-      <li class="nav-item dropdown ml-4">
-        <%= image_tag current_user.avatar, class: "avatar border border-dark dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
-          <%= link_to "Edit profile", edit_user_path(current_user), class: "dropdown-item"  %>
-          <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-        </div>
-      </li>
-
-      <% else %>
-      <li class="nav-item btn btn-light">
-        <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item ml-3 btn btn-light">
-        <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
-      </li>
-      <% end %>
-
-    </ul>
+    <% if user_signed_in? %>
+      <%= link_to 'Create kitchen', new_kitchen_path, class: 'btn btn-dark mr-3'  %>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown ml-2">
+          <%= image_tag current_user.avatar, class: "avatar border border-dark dropdown-toggle ", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
+            <%= link_to "Edit profile", edit_user_path(current_user), class: "dropdown-item"  %>
+            <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+      </ul>
+    <% else %>
+      <%= link_to "Sign In", new_user_session_path, class: "btn btn-outline-dark mr-3" %>
+      <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-dark" %>
+    <% end %>
   </div>
 </div>
