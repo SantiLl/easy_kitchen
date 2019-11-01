@@ -6,11 +6,13 @@
     </div>
     <div class="col-md-6">
       <div class="mt-5">
-        <h2>Write a Review</h2>
-        <%= simple_form_for [@appointment, @review] do |f| %>
-        <%= f.input :content %>
-        <%= f.input :rating, collection: ["0", "1", "2", "3", "4", "5"]  %>
-        <%= f.button :submit, class: "btn btn-primary" %>
+        <% if Date.today.to_time.to_i > @appointment.date.to_time.to_i %>
+          <h2>Write a Review</h2>
+          <%= simple_form_for [@appointment, @review] do |f| %>
+            <%= f.input :content %>
+            <%= f.input :rating, collection: [0, 1, 2, 3, 4, 5] %>
+            <%= f.button :submit, class: "btn btn-primary" %>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -36,8 +38,7 @@
       <div class="modal-body">
         <div class="text-center">
           <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
-          <p>Your reservation was programated successful, soon you will recibe the confirmation of the booking.
-      Thank you</p>
+          <p>Your reservation was programated successful, soon you will recibe the confirmation of the booking. Thank you</p>
         </div>
       </div>
 
@@ -48,14 +49,4 @@
     </div>
     <!--/.Content-->
   </div>
-</div>
-<!-- Central Modal Medium Success-->
-
-
-
-
-
-
-  </div>
-
 </div>
