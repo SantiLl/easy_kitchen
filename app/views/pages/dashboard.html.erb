@@ -17,7 +17,7 @@
     <div class="tab-content" id="myTabContent">
 
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-      <div class="cards col-md-8">
+      <div class="cards col-md-8 mt-2">
           <% @kitchens.each do |kitchen| %>
              <%= render 'components/dashboard-card', kitchen: kitchen %>
           <% end %>
@@ -27,7 +27,7 @@
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
       <div class="cards d-flex">
         <% @appointments.each do |appointment| %>
-          <div class="col-md-4">
+          <div class="col-md-4 mt-4">
             <%= render 'components/appointment-card', appointment: appointment %>
           </div>
         <% end %>
@@ -38,7 +38,7 @@
       <div class="cards d-flex">
         <% @kitchens.each do |kitchen| %>
           <% kitchen.appointments.each do |appointment| %>
-            <div class="col-md-4">
+            <div class="col-md-4 mt-4">
               <%= render 'components/kitchen-appointments', appointment: appointment %>
             </div>
           <% end %>

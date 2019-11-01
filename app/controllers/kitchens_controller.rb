@@ -51,7 +51,6 @@ class KitchensController < ApplicationController
 
   def destroy
     @kitchen.destroy
-    redirect_to dashboard_path
   end
 
   private
