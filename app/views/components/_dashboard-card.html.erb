@@ -1,21 +1,28 @@
-<div class="card-kitchen" data-kitchen-id="<%= kitchen.id %>">
-  <%= link_to kitchen_path(kitchen) do %>
+<%= link_to kitchen_path(kitchen) do %>
+  <div class="card-kitchen">
     <%= cl_image_tag kitchen.photo %>
+    <div class="star-rating">
+      <%= render 'shared/stars', kitchen: kitchen %>
+    </div>
     <div class="card-body">
-      <h5 class="card-title text-dark"><%= kitchen.name %></h5>
-      <p class="card-text text-dark">Address: <%= kitchen.address %></p>
-      <p class="card-text text-dark">$ <%= kitchen.price %></p>
-      <p class="card-text text-dark mb-3" >Description: <%= kitchen.description.truncate(50) %></p>
-      <div class="btn-box">
-        <% if policy(kitchen).edit? %>
-          <%= link_to 'edit', edit_kitchen_path(kitchen), class: 'btn-card' %>
-        <% end %>
-        <% if policy(kitchen).destroy? %>
-          <%= link_to kitchen_path(kitchen), method: :delete, remote: true, data: { confirm: "Are you sure you want to delete this item?"}, id: kitchen.id, class: 'btn-card-trash' do %>
-            <i class='fas fa-trash'></i>
-          <% end %>
-        <% end %>
+      <div>
+        <h5 class="card-title mb-1"><%= kitchen.name %></h5>
+        <p class="card-text overflow-ellipsis card-description"><%= kitchen.description.capitalize %></p>
+      </div>
+      <div class="d-flex justify-content-between mt-3">
+        <p class="card-text card-address" ><i class="fas fa-map-marker-alt"></i> <%= kitchen.address %></p>
+        <p class="card-text card-price">$ <%= kitchen.price %></p>
       </div>
     </div>
-  <% end %>
-</div>
+    <div class="btn-box">
+      <% if policy(kitchen).edit? %>
+        <%= link_to 'edit', edit_kitchen_path(kitchen), class: 'btn-card' %>
+      <% end %>
+      <% if policy(kitchen).destroy? %>
+        <%= link_to kitchen_path(kitchen), method: :delete, remote: true, data: { confirm: "Are you sure you want to delete this item?"}, id: kitchen.id, class: 'btn-card-trash' do %>
+          <i class='fas fa-trash'></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
