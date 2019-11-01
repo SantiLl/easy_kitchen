@@ -13,7 +13,7 @@ puts 'Creating admin user...'
 admin = User.create!(email: 'admin@easy-kitchen.com', password: 'kitchen', remote_photo_url: 'https://raymanpc.com/wiki/images/1/15/Admin.png')
 puts 'Creating regular users...'
 alejo = User.create!(email: 'alejo@easy-kitchen.com', password: 'kitchen', remote_photo_url: 'https://ca.slack-edge.com/T02NE0241-UNDMY14Q5-3615c3435408-512')
-santiago = User.create!(email: 'santiago@easy-kitchen.com', password: 'kitchen', remote_photo_url: 'https://ca.slack-edge.com/T02NE0241-UNDKPE0D6-3ae91634e71a-72')
+santiago = User.create!(email: 'santiago@easy-kitchen.com', password: 'asdasd', remote_photo_url: 'https://ca.slack-edge.com/T02NE0241-UNDKPE0D6-3ae91634e71a-72')
 enzo = User.create!(email: 'enzo@easy-kitchen.com', password: 'kitchen', remote_photo_url:'https://ca.slack-edge.com/T02NE0241-UNDJE9Y1J-2cd2134f004a-72')
 andres = User.create!(email: 'andres@easy-kitchen.com', password: 'kitchen', remote_photo_url:'https://ca.slack-edge.com/T02NE0241-UNDCB0BTN-6e9c411fc926-512')
 sebas = User.create!(email: 'sebastian@easy-kitchen.com', password: 'kitchen', remote_photo_url:'https://ca.slack-edge.com/T02NE0241-U56TR1Q0M-fef167a62a5a-72')
@@ -25,20 +25,13 @@ kitchen2 = Kitchen.create!(user_id: santiago.id, address: 'Av. Boedo 1601, C1239
 kitchen3 = Kitchen.create!(user_id: enzo.id, address: 'Gral. José Gervasio Artigas 1372, Buenos Aires', latitude: -34.614922, longitude:-58.470926, description: Faker::Restaurant.description, name: 'Delixous', remote_photo_url:"https://images.unsplash.com/photo-1565183928294-7063f23ce0f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80", price:'1938')
 kitchen4 = Kitchen.create!(user_id: andres.id, address: 'B1824HMF, Yatay 309, B1824HMF Valentín Alsina, Buenos Aires', latitude:-34.664534, longitude: -58.409495, description: Faker::Restaurant.description, name:'Alta comida', remote_photo_url:"https://images.unsplash.com/photo-1512916194211-3f2b7f5f7de3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80", price:'1340')
 puts 'Creating appointments...'
-agc = Appointment.create!(user_id: alejo.id, kitchen_id: kitchen1.id, date: '2019-08-29')
-sy = Appointment.create!(user_id: santiago.id, kitchen_id: kitchen2.id, date: '2019-09-23')
-em = Appointment.create!(user_id: enzo.id, kitchen_id: kitchen3.id, date: '2019-10-12')
-ac = Appointment.create!(user_id: andres.id, kitchen_id: kitchen4.id, date:'2019-10-29')
+agc = Appointment.create!(user_id: guille.id, kitchen_id: kitchen1.id, date: '2019-08-29')
+sy = Appointment.create!(user_id: sebas.id, kitchen_id: kitchen2.id, date: '2019-09-23')
+em = Appointment.create!(user_id: fer.id, kitchen_id: kitchen3.id, date: '2019-08-12')
+ac = Appointment.create!(user_id: enzo.id, kitchen_id: kitchen4.id, date:'2019-07-29')
+agc = Appointment.create!(user_id: guille.id, kitchen_id: kitchen1.id, date: '2019-08-29')
+sy = Appointment.create!(user_id: sebas.id, kitchen_id: kitchen2.id, date: '2019-09-23')
+em = Appointment.create!(user_id: fer.id, kitchen_id: kitchen3.id, date: '2019-08-12')
+ac = Appointment.create!(user_id: enzo.id, kitchen_id: kitchen4.id, date:'2019-07-29')
 puts 'Creating reviews...'
-3.times do
-review =Review.create!(content: Faker::Restaurant.review   , appointment_id: sy.id, rating: 4)
-end
-3.times do
-review =Review.create!(content: Faker::Restaurant.review   , appointment_id: agc.id, rating: 3)
-end
-3.times do
-review =Review.create!(content: Faker::Restaurant.review   , appointment_id: ac.id, rating: 4)
-end
-3.times do
-review =Review.create!(content: Faker::Restaurant.review   , appointment_id: em.id, rating: 5)
-end
+

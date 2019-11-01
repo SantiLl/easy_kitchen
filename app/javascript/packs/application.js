@@ -16,3 +16,8 @@ flatpickr(".datepicker", {
 initMapbox();
 
 initAutocomplete();
+
+
+$(window).on('load',function(){
+    $('#initialModal').modal('show');
+});

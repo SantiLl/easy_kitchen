@@ -1,22 +1,61 @@
-<div class="kitchen-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://cdn.vox-cdn.com/thumbor/z5BZeH8NYrhu7ooviC149TlfHaI=/0x428:3109x2812/1200x800/filters:focal(1057x1406:1581x1930)/cdn.vox-cdn.com/uploads/chorus_image/image/54756169/restaurant_kitchen_shutterstock.0.jpg')">
- Your appointment!
-</div>
-
-<div class="container d-flex justify-content-center">
-  <div class="col-md-6 ">
-
-
-    <%= render 'components/card-appointment' %>
-
-
-  <%# if Date.today.to_time.to_i > @appointment.date.to_time.to_i %>
-    <h3>Wirite a Review</h3>
-    <%= simple_form_for [@appointment, @review] do |f| %>
-      <%= f.input :content %>
-      <%= f.input :rating, collection: ["0", "1", "2", "3", "4", "5"]  %>
-      <%= f.button :submit, class: "btn btn-primary" %>
-    <% end %>
-  <%# end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Your appointment for <%= @appointment.kitchen.name %></h1>
+      <%= render 'components/card-appointment' %>
+    </div>
+    <div class="col-md-6">
+      <div class="mt-5">
+        <h2>Write a Review</h2>
+        <%= simple_form_for [@appointment, @review] do |f| %>
+        <%= f.input :content %>
+        <%= f.input :rating, collection: ["0", "1", "2", "3", "4", "5"]  %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 
+<!-- Central Modal Medium Success -->
+<div id="initialModal" class="modal fade" id="centralModalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-success" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header">
+        <p class="heading lead">Appointment confirmation!</p>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <div class="text-center">
+          <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
+          <p>Your reservation was programated successful, soon you will recibe the confirmation of the booking.
+      Thank you</p>
+        </div>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <a type="button" class="btn btn-light" data-dismiss="modal">Submit</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!-- Central Modal Medium Success-->
+
+
+
+
+
+
+  </div>
+
+</div>
