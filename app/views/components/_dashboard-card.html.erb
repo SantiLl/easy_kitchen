@@ -1,4 +1,4 @@
-<div class="card-kitchen">
+<div class="card-kitchen" data-kitchen-id="<%= kitchen.id %>">
   <%= link_to kitchen_path(kitchen) do %>
     <%= cl_image_tag kitchen.photo %>
     <div class="card-body">
@@ -11,7 +11,9 @@
           <%= link_to 'edit', edit_kitchen_path(kitchen), class: 'btn-card' %>
         <% end %>
         <% if policy(kitchen).destroy? %>
-          <%= link_to content_tag(:i, "", class: 'fas fa-trash'), kitchen_path(kitchen), method: :delete, data: { confirm: "Are you sure you want to delete this item?"}, class: 'btn-card-trash'  %>
+          <%= link_to kitchen_path(kitchen), method: :delete, remote: true, data: { confirm: "Are you sure you want to delete this item?"}, id: kitchen.id, class: 'btn-card-trash' do %>
+            <i class='fas fa-trash'></i>
+          <% end %>
         <% end %>
       </div>
     </div>

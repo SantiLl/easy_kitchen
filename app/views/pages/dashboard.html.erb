@@ -1,6 +1,77 @@
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    <h1>Dashboard</h1>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  <h1>Dashboard</h1>
+</div>
+
+<div class="container-fluid mt-2">
+  <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="My Kitchens" aria-selected="true">My Kitchens</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="My Appointments" aria-selected="false">My Appointments</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="My Kitchen Appointments  " aria-selected="false">My Kitchen Appointments</a>
+    </li>
+  </ul>
+    <div class="tab-content" id="myTabContent">
+
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <div class="cards col-md-8 mt-2">
+          <% @kitchens.each do |kitchen| %>
+             <%= render 'components/dashboard-card', kitchen: kitchen %>
+          <% end %>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <div class="cards d-flex">
+        <% @appointments.each do |appointment| %>
+          <div class="col-md-4 mt-4">
+            <%= render 'components/appointment-card', appointment: appointment %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+      <div class="cards d-flex">
+        <% @kitchens.each do |kitchen| %>
+          <% kitchen.appointments.each do |appointment| %>
+            <div class="col-md-4 mt-4">
+              <%= render 'components/kitchen-appointments', appointment: appointment %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
 <div class="container-fluid">
   <h3 class="title-dashboard">My kitchens</h3>
   <div class="cards">
@@ -29,3 +100,4 @@
     <% end %>
   </div>
 </div>
+ -->
