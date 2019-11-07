@@ -1,4 +1,5 @@
 puts 'Cleaning database...'
+puts 'Cleaning database...'
 puts 'Erasing reviews...'
 Review.destroy_all
 puts 'Erasing appointments...'
